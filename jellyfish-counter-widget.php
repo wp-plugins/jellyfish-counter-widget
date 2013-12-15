@@ -4,7 +4,7 @@
   Plugin URI: http://strawberryjellyfish.com/wordpress-plugin-jellyfish-counter-widget/
   Description: Creates a widget with an odometer style counter that displays either a static number or animates up to a predefined value.
   Author: Rob Miller
-  Version: 0.8
+  Version: 0.9
   Author URI: http://strawberryjellyfish.com/
  */
 
