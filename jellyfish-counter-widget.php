@@ -4,7 +4,7 @@
 	Plugin URI: http://strawberryjellyfish.com/wordpress-plugins/jellyfish-counter/
 	Description: Fully configurable static or animated odometer style rotating counters.
 	Author: Rob Miller
-	Version: 1.4
+	Version: 1.4.1
 	Author URI: http://strawberryjellyfish.com/
 */
 
