@@ -4,7 +4,7 @@
 	Plugin URI: http://strawberryjellyfish.com/wordpress-plugins/jellyfish-counter/
 	Description: Fully configurable static or animated odometer style rotating counters.
 	Author: Rob Miller
-	Version: 1.4.1
+	Version: 1.4.2
 	Author URI: http://strawberryjellyfish.com/
 */
 
@@ -36,8 +36,8 @@ function jellyfish_cw_create_widgets() {
 
 function jellyfish_cw_action_init() {
 	load_plugin_textdomain( 'jellyfish_cw', false, dirname( plugin_basename( __FILE__ ) ) );
-	wp_register_style( 'jellyfish_cw_css', plugins_url( 'css/jellyfish-counter.css', __FILE__ ) );
-	wp_register_script( 'jellyfish_cw_odometer', plugins_url( 'js/jellyfish-odometer.js', __FILE__ ), array( 'jquery' ), '', true );
+	wp_register_style( 'jellyfish_cw_css', plugins_url( 'jellyfish-odometer-class/css/jellyfish-counter.css', __FILE__ ) );
+	wp_register_script( 'jellyfish_cw_odometer', plugins_url( 'jellyfish-odometer-class/js/jellyfish-odometer.js', __FILE__ ), array( 'jquery' ), '', true );
 	wp_register_script( 'jellyfish_cw_loader', plugins_url( 'js/jellyfish-counter-loader.js', __FILE__ ), array( 'jquery' ), '', true );
 	// there is no way of knowing if we use a shortcode or not until well after
 	// the head has rendered which is too late to add css on demand...
@@ -67,7 +67,8 @@ function jellyfish_cw_shortcode_handler( $atts, $content = null ) {
 			'end' => 0,
 			'direction' => 'up',
 			'timestamp' => false,
-			'interval' => 1
+			'interval' => 1,
+			'active' => true
 		), $atts );
 
 	$element_id = 'jellyfish-counter-shortcode-' . esc_attr( $a['id'] );
@@ -111,6 +112,7 @@ function jellyfish_cw_shortcode_handler( $atts, $content = null ) {
 			data-end-value="' . esc_attr( $a['end'] ) .'"
 			data-direction="' . esc_attr( $a['direction'] ) .'"
 			data-timestamp="' . esc_attr( $a['timestamp'] ) .'"
+			data-active="' . esc_attr( $a['active'] ) .'"
 			data-interval="' . esc_attr( $a['interval'] ) .'">
 		</div>';
 	$jellyfish_cw_shortcode_id++;
@@ -461,7 +463,7 @@ class Jellyfish_Counter_Widget extends WP_Widget {
 		}
 
 		if ( is_numeric( $new_instance['end_value'] ) ) {
-			$instance['end_value'] = intval( $new_instance['end_value'] );
+			$instance['end_value'] = $new_instance['end_value'];
 		}
 
 		if ( is_numeric( $new_instance['animate_speed'] ) ) {
