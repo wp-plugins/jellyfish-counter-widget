@@ -6,7 +6,7 @@ Plugin URI: http://strawberryjellyfish.com/wordpress-plugins/jellyfish-counter/
 Tags: counter, odometer, milometer, animated, widget, totaliser
 Requires at least: 3.0
 Tested up to: 4.2.3
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -88,6 +88,9 @@ I'm always interested in suggestions, send them on through!
 
 
 == Changelog ==
+
+= 1.4.4 =
+* Ooops: one of the obsolete things removed in previous version wasn't as obsolete I imagined.
 
 = 1.4.3 =
 * Updated WordPress tested version to 4.2.3
